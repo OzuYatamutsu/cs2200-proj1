@@ -58,43 +58,55 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
     <wire from="(110,140)" to="(110,270)"/>
+    <wire from="(360,200)" to="(360,270)"/>
     <wire from="(220,200)" to="(220,270)"/>
     <wire from="(10,10)" to="(10,400)"/>
-    <wire from="(240,140)" to="(240,150)"/>
-    <wire from="(250,10)" to="(690,10)"/>
+    <wire from="(240,100)" to="(290,100)"/>
     <wire from="(290,90)" to="(290,100)"/>
     <wire from="(80,10)" to="(80,90)"/>
+    <wire from="(250,10)" to="(360,10)"/>
     <wire from="(110,400)" to="(220,400)"/>
-    <wire from="(240,140)" to="(280,140)"/>
     <wire from="(10,400)" to="(110,400)"/>
     <wire from="(110,140)" to="(140,140)"/>
     <wire from="(160,10)" to="(250,10)"/>
-    <wire from="(220,400)" to="(690,400)"/>
     <wire from="(160,10)" to="(160,50)"/>
     <wire from="(250,10)" to="(250,50)"/>
     <wire from="(210,50)" to="(210,90)"/>
+    <wire from="(360,290)" to="(360,400)"/>
+    <wire from="(360,10)" to="(360,120)"/>
     <wire from="(300,50)" to="(300,90)"/>
-    <wire from="(280,100)" to="(280,140)"/>
     <wire from="(120,90)" to="(140,90)"/>
     <wire from="(70,80)" to="(90,80)"/>
     <wire from="(220,290)" to="(220,400)"/>
     <wire from="(110,290)" to="(110,400)"/>
     <wire from="(140,90)" to="(140,140)"/>
     <wire from="(80,10)" to="(160,10)"/>
+    <wire from="(240,100)" to="(240,150)"/>
     <wire from="(290,50)" to="(300,50)"/>
     <wire from="(290,90)" to="(300,90)"/>
-    <wire from="(280,100)" to="(290,100)"/>
+    <wire from="(360,400)" to="(690,400)"/>
+    <wire from="(360,10)" to="(690,10)"/>
     <wire from="(160,50)" to="(170,50)"/>
     <wire from="(180,170)" to="(190,170)"/>
     <wire from="(200,50)" to="(210,50)"/>
     <wire from="(250,50)" to="(260,50)"/>
     <wire from="(200,90)" to="(210,90)"/>
     <wire from="(80,90)" to="(90,90)"/>
+    <wire from="(220,400)" to="(360,400)"/>
     <wire from="(10,10)" to="(80,10)"/>
     <wire from="(200,90)" to="(200,150)"/>
+    <comp lib="0" loc="(330,140)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="WrREG"/>
+    </comp>
     <comp lib="0" loc="(270,70)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="CLK"/>
+    </comp>
+    <comp loc="(330,140)" name="register-array"/>
+    <comp lib="4" loc="(630,230)" name="RAM">
+      <a name="addrWidth" val="16"/>
+      <a name="dataWidth" val="16"/>
     </comp>
     <comp lib="1" loc="(220,290)" name="Controlled Buffer">
       <a name="facing" val="south"/>
@@ -108,6 +120,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(180,70)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="CLK"/>
+    </comp>
+    <comp lib="0" loc="(350,280)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="DrREG"/>
+    </comp>
+    <comp lib="1" loc="(360,290)" name="Controlled Buffer">
+      <a name="facing" val="south"/>
+      <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(70,80)" name="Pin">
       <a name="tristate" val="false"/>
@@ -130,6 +150,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="func"/>
     </comp>
+    <comp lib="0" loc="(330,170)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="regno"/>
+    </comp>
     <comp lib="0" loc="(40,30)" name="Clock"/>
     <comp lib="0" loc="(210,280)" name="Pin">
       <a name="tristate" val="false"/>
@@ -143,17 +168,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="north"/>
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="4" loc="(480,210)" name="RAM">
-      <a name="addrWidth" val="16"/>
-      <a name="dataWidth" val="16"/>
-    </comp>
     <comp lib="0" loc="(170,60)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="LdA"/>
     </comp>
-    <comp loc="(190,170)" name="ALUx16">
-      <a name="label" val="ALU"/>
-    </comp>
+    <comp loc="(190,170)" name="ALUx16"/>
     <comp lib="0" loc="(100,280)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="DrPC"/>
@@ -175,6 +194,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <polyline fill="none" points="120,100 160,100" stroke="#000000" stroke-width="2"/>
       <polyline fill="none" points="108,50 119,100" stroke="#000000" stroke-width="2"/>
       <polyline fill="none" points="172,50 161,100" stroke="#000000" stroke-width="2"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="141" y="86">ALU</text>
       <circ-port height="8" pin="60,80" width="8" x="106" y="66"/>
       <circ-port height="8" pin="200,60" width="8" x="116" y="46"/>
       <circ-port height="8" pin="470,60" width="8" x="156" y="46"/>
@@ -294,6 +314,45 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="0" loc="(450,220)" name="Constant">
       <a name="width" val="16"/>
+    </comp>
+  </circuit>
+  <circuit name="register-array">
+    <a name="circuit" val="register-array"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="80" stroke="#000000" stroke-width="2" width="59" x="40" y="50"/>
+      <text font-family="SansSerif" font-size="9" text-anchor="middle" x="70" y="84">REGISTERS</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="69" y="95">16x</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="106">16-bit</text>
+      <circ-port height="8" pin="80,150" width="8" x="36" y="66"/>
+      <circ-port height="8" pin="80,180" width="8" x="36" y="96"/>
+      <circ-port height="8" pin="320,50" width="8" x="66" y="46"/>
+      <circ-port height="10" pin="320,390" width="10" x="65" y="125"/>
+      <circ-anchor facing="east" height="6" width="6" x="37" y="67"/>
+    </appear>
+    <comp lib="0" loc="(80,150)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="WrREG"/>
+    </comp>
+    <comp lib="0" loc="(320,390)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Din"/>
+    </comp>
+    <comp lib="0" loc="(80,180)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="regno"/>
+    </comp>
+    <comp lib="0" loc="(320,50)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Din"/>
     </comp>
   </circuit>
 </project>
