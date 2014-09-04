@@ -1,0 +1,98 @@
+[add (000)]
+
+1. (Set A=contents of RY)
+regno=RY, DrREG, LdA
+
+2. (Set B=contents of RZ)
+regno=RZ, DrREG, LdB
+
+3. (Compute in ALU and write result to RX)
+func=00, DrALU, WrREG, regno=RX
+
+[nand (001)]
+
+1. (Set A=contents of RY)
+regno=RY, DrREG, LdA
+
+2. (Set B=contents of RZ)
+regno=RZ, DrREG, LdB
+
+3. (Compute in ALU and write result to RX)
+func=01, DrALU, WrREG, regno=RX
+
+[addi (010)]
+
+1. (Set A=contents of RY)
+regno=RY, DrREG, LdA
+
+2. (Set B=offset)
+DrOFF, LdB
+
+3. (Compute in ALU and write result to RX)
+func=00, DrALU, WrREG, regno=RX
+
+[lw (011)] 
+
+1. (Set A=contents of RY)
+regno=RY, DrREG, LdA
+
+2. (Set B=offset)
+DrOFF, LdB
+
+3. (Compute in ALU and load result in MAR)
+func=00, DrALU, LdMAR
+
+4. (Get contents of memory location and write to register RX)
+DrMEM, regno=RX, WrREG
+
+[sw (100)] 
+
+1. (Set A=contents of RZ (offset))
+regno=RY, DrREG, LdA
+
+2. (Set B=offset)
+DrOFF, LdB
+
+3. (Compute in ALU and load result in MAR)
+func=00, DrALU, LdMAR
+
+4. (Get value from register and store into MAR's location)
+regno=RY, DrREG, WrMEM
+
+[beq (101)] 
+
+1. (Set A=contents of RX)
+regno=RX, DrREG, LdA
+
+2. (Set B=contents of RY)
+regno=RY, DrREG, LdA
+
+3. (Subtract (result=0 means RX=RY) and load bool result (=0?) into Z register)
+func=10, DrALU, LdZ
+
+(If Z!=0, return to fetch)
+
+4. (Load current PC into A)
+DrPC, LdA
+
+5. (Load offset to label into B)
+DrOFF, LdB
+
+6. (Add result in ALU and set PC = new value)
+func=00, DrALU, LdPC
+
+[jalr (110)]
+
+1. (Store return PC value in RZ)
+DrPC, regno=RZ, WrREG
+
+2. (Store RY in PC)
+regno=RY, DrREG, LdPC
+
+[halt (111)] 
+
+Stop processing (?)
+
+fetch1a: DrPC, LdA, LDMAR
+fetch2: DrMEM, LdIR
+fetch3: func=11, DrALU, LdPC
