@@ -47,7 +47,7 @@ DrMEM, regno=RX, WrREG
 
 [sw (100)] 
 
-1. (Set A=contents of RZ (offset))
+1. (Set A=contents of RY (offset))
 regno=RY, DrREG, LdA
 
 2. (Set B=offset)
@@ -57,7 +57,7 @@ DrOFF, LdB
 func=00, DrALU, LdMAR
 
 4. (Get value from register and store into MAR's location)
-regno=RY, DrREG, WrMEM
+regno=RX, DrREG, WrMEM
 
 [beq (101)] 
 
@@ -65,7 +65,7 @@ regno=RY, DrREG, WrMEM
 regno=RX, DrREG, LdA
 
 2. (Set B=contents of RY)
-regno=RY, DrREG, LdA
+regno=RY, DrREG, LdB
 
 3. (Subtract (result=0 means RX=RY) and load bool result (=0?) into Z register)
 func=10, DrALU, LdZ
@@ -83,11 +83,11 @@ func=00, DrALU, LdPC
 
 [jalr (110)]
 
-1. (Store return PC value in RZ)
-DrPC, regno=RZ, WrREG
+1. (Store return PC value in RY)
+DrPC, regno=RY, WrREG
 
-2. (Store RY in PC)
-regno=RY, DrREG, LdPC
+2. (Store RX in PC)
+regno=RX, DrREG, LdPC
 
 [halt (111)] 
 
