@@ -88,5 +88,25 @@
 		<Signal name="WrREG"/>
 		<Goto state="FETCH0"/>
 	</State>
-	<!-- Next is sw0 -->
+	<State name="SW0">
+		<Signal name="RegSelLo"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="SW1"/>
+	</State>
+	<State name="SW1">
+		<Signal name="DrOFF"/>
+		<Signal name="LdB"/>
+		<Goto state="SW2"/>
+	</State>
+	<State name="SW2">
+		<Signal name="DrALU"/>
+		<Signal name="LdMAR"/>
+		<Goto state="SW3"/>
+	</State>
+	<State name="SW3">
+		<Signal name="DrREG"/>
+		<Signal name="WrMEM"/>
+		<Goto state="FETCH0"/>
+	</State>	
 </Microcode>
