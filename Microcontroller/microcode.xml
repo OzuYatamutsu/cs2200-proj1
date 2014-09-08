@@ -33,4 +33,5 @@
 		<Signal name="WrREG"/>
 		<Goto state="FETCH0"/>
 	</State>
+	<!-- Next is nand -->
 </Microcode>
