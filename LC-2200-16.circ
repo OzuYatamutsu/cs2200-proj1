@@ -1287,8 +1287,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(654,114)" name="Text">
       <a name="text" val="Offset"/>
     </comp>
-    <comp lib="6" loc="(615,363)" name="Text">
-      <a name="text" val="OnZ ROM"/>
+    <comp lib="6" loc="(374,371)" name="Text">
+      <a name="text" val="OpCheck ROM (seq ROM)"/>
     </comp>
     <comp lib="0" loc="(370,40)" name="Pin">
       <a name="facing" val="south"/>
@@ -1347,6 +1347,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="6"/>
       <a name="enable" val="false"/>
     </comp>
+    <comp lib="6" loc="(581,363)" name="Text">
+      <a name="text" val="OnZ ROM (beq ROM)"/>
+    </comp>
     <comp lib="0" loc="(100,170)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="6"/>
@@ -1380,7 +1383,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="addrWidth" val="2"/>
       <a name="dataWidth" val="6"/>
       <a name="contents">addr/data: 2 6
-0 1
+1a 17
 </a>
     </comp>
     <comp lib="0" loc="(230,40)" name="Pin">
@@ -1415,7 +1418,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="addrWidth" val="6"/>
       <a name="dataWidth" val="25"/>
       <a name="contents">addr/data: 6 25
-0
+6201 1082 e00800 84044 108045 20100 84047 108048
+220100 8404a 840b 20100 8404d 840e 210f 20080
+84051 8412 2113 40040 4055 8056 1410100 4218
+8419 900 0 a021c 840 1d
 </a>
     </comp>
     <comp lib="0" loc="(550,160)" name="Splitter">
@@ -1437,7 +1443,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="addrWidth" val="3"/>
       <a name="dataWidth" val="6"/>
       <a name="contents">addr/data: 3 6
-0
+3 6 9 c 10 14 1b 1d
 </a>
     </comp>
     <comp lib="0" loc="(680,410)" name="Pin">
@@ -1480,9 +1486,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="6" loc="(134,374)" name="Text">
       <a name="text" val="RegSelLo/Hi"/>
-    </comp>
-    <comp lib="6" loc="(340,370)" name="Text">
-      <a name="text" val="OpCheck ROM"/>
     </comp>
   </circuit>
   <circuit name="Dr-split">
