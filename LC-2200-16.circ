@@ -144,6 +144,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(70,80)" to="(90,80)"/>
     <wire from="(520,220)" to="(520,260)"/>
     <wire from="(240,100)" to="(240,150)"/>
+    <wire from="(300,240)" to="(310,240)"/>
     <wire from="(560,20)" to="(560,80)"/>
     <wire from="(60,440)" to="(70,440)"/>
     <wire from="(600,60)" to="(610,60)"/>
@@ -272,6 +273,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="LdB"/>
     </comp>
+    <comp loc="(280,260)" name="Ld-split"/>
     <comp lib="0" loc="(40,30)" name="Tunnel">
       <a name="label" val="CLK"/>
     </comp>
@@ -1498,6 +1500,107 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="tristate" val="false"/>
       <a name="label" val="DrALU"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+  </circuit>
+  <circuit name="Ld-split">
+    <a name="circuit" val="Ld-split"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="150" y="58">MAR</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="140" y="97">Z</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="156" y="97">Ld</text>
+      <rect fill="none" height="50" stroke="#000000" stroke-width="2" width="42" x="120" y="50"/>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="127" y="72">PC</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="130" y="58">A</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="155" y="72">IR</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="140" y="58">B</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="154" y="82">In</text>
+      <circ-port height="8" pin="350,30" width="8" x="156" y="76"/>
+      <circ-port height="10" pin="90,410" width="10" x="115" y="65"/>
+      <circ-port height="10" pin="180,410" width="10" x="155" y="65"/>
+      <circ-port height="10" pin="280,410" width="10" x="145" y="45"/>
+      <circ-port height="10" pin="400,410" width="10" x="125" y="45"/>
+      <circ-port height="10" pin="500,410" width="10" x="135" y="45"/>
+      <circ-port height="10" pin="600,410" width="10" x="135" y="95"/>
+      <circ-anchor facing="east" height="6" width="6" x="137" y="97"/>
+    </appear>
+    <wire from="(180,70)" to="(370,70)"/>
+    <wire from="(600,50)" to="(600,410)"/>
+    <wire from="(410,50)" to="(600,50)"/>
+    <wire from="(400,50)" to="(400,60)"/>
+    <wire from="(280,80)" to="(280,410)"/>
+    <wire from="(360,50)" to="(360,60)"/>
+    <wire from="(390,50)" to="(390,70)"/>
+    <wire from="(370,50)" to="(370,70)"/>
+    <wire from="(400,70)" to="(400,410)"/>
+    <wire from="(390,70)" to="(400,70)"/>
+    <wire from="(90,60)" to="(360,60)"/>
+    <wire from="(180,70)" to="(180,410)"/>
+    <wire from="(280,80)" to="(380,80)"/>
+    <wire from="(500,60)" to="(500,410)"/>
+    <wire from="(400,60)" to="(500,60)"/>
+    <wire from="(380,50)" to="(380,80)"/>
+    <wire from="(90,60)" to="(90,410)"/>
+    <comp lib="0" loc="(180,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdIR"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(400,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdA"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(350,30)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="6"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Input"/>
+    </comp>
+    <comp lib="0" loc="(600,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdZ"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(90,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdPC"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(280,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdMAR"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(350,30)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="6"/>
+      <a name="incoming" val="6"/>
+      <a name="bit0" val="5"/>
+      <a name="bit1" val="4"/>
+      <a name="bit2" val="3"/>
+      <a name="bit3" val="2"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="0"/>
+    </comp>
+    <comp lib="0" loc="(500,410)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="LdB"/>
       <a name="labelloc" val="east"/>
     </comp>
   </circuit>
