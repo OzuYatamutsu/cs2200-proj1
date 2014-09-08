@@ -125,7 +125,7 @@
 		<Signal name="LdZ"/>
 		<Signal name="chkZ"/>
 	</State>
-	<State name="BEQ3">
+	<State name="BEQ3" onZ="true">
 		<Signal name="DrPC"/>
 		<Signal name="LdA"/>
 		<Goto state="BEQ4"/>
@@ -138,6 +138,9 @@
 	<State name="BEQ5">
 		<Signal name="DrALU"/>
 		<Signal name="LdPC"/>
+		<Goto state="FETCH0"/>
+	</State>
+	<State name="BEQ6" onZ="false">
 		<Goto state="FETCH0"/>
 	</State>
 	<State name="JALR0">
