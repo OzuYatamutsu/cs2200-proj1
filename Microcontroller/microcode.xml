@@ -33,5 +33,60 @@
 		<Signal name="WrREG"/>
 		<Goto state="FETCH0"/>
 	</State>
-	<!-- Next is nand -->
+	<State name="NAND0">
+		<Signal name="RegSelLo"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="NAND1"/>
+	</State>
+	<State name="NAND1">
+		<Signal name="RegSelHi"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdB"/>
+		<Goto state="NAND2"/>
+	</State>
+	<State name="NAND2">
+		<Signal name="ALULo"/>
+		<Signal name="DrALU"/>
+		<Signal name="WrREG"/>
+		<Goto state="FETCH0"/>
+	</State>
+	<State name="ADDI0">
+		<Signal name="RegSelLo"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="ADDI1"/>
+	</State>
+	<State name="ADDI1">
+		<Signal name="DrOFF"/>
+		<Signal name="LdB"/>
+		<Goto state="ADDI2"/>
+	</State>
+	<State name="ADDI2">
+		<Signal name="DrALU"/>
+		<Signal name="WrREG"/>
+		<Goto state="FETCH0"/>
+	</State>
+	<State name="LW0">
+		<Signal name="RegSelLo"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="LW1"/>
+	</State>
+	<State name="LW1">
+		<Signal name="DrOFF"/>
+		<Signal name="LdB"/>
+		<Goto state="LW2"/>
+	</State>
+	<State name="LW2">
+		<Signal name="DrALU"/>
+		<Signal name="LdMAR"/>
+		<Goto state="LW3"/>
+	</State>
+	<State name="LW3">
+		<Signal name="DrMEM"/>
+		<Signal name="WrREG"/>
+		<Goto state="FETCH0"/>
+	</State>
+	<!-- Next is sw0 -->
 </Microcode>
