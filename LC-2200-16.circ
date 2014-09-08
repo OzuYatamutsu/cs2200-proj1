@@ -1470,6 +1470,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(542,153)" name="Text">
       <a name="text" val="RX"/>
     </comp>
+    <comp lib="6" loc="(77,52)" name="Text">
+      <a name="text" val="Main ROM"/>
+    </comp>
     <comp lib="0" loc="(690,110)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="5"/>
