@@ -109,5 +109,36 @@
 		<Signal name="WrMEM"/>
 		<Goto state="FETCH0"/>
 	</State>
-	<!-- Next state is beq0 -->
+	<State name="BEQ0">
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="BEQ1"/>
+	</State>
+	<State name="BEQ1">
+		<Signal name="DrREG"/>
+		<Signal name="LdB"/>
+		<Goto state="BEQ2"/>
+	</State>
+	<State name="BEQ2">
+		<Signal name="ALUHi"/>
+		<Signal name="DrALU"/>
+		<Signal name="LdZ"/>
+		<Signal name="chkZ"/>
+	</State>
+	<State name="BEQ3">
+		<Signal name="DrPC"/>
+		<Signal name="LdA"/>
+		<Goto state="BEQ4"/>
+	</State>
+	<State name="BEQ4">
+		<Signal name="DrOFF"/>
+		<Signal name="LdB"/>
+		<Goto state="BEQ5"/>
+	</State>
+	<State name="BEQ5">
+		<Signal name="DrALU"/>
+		<Signal name="LdPC"/>
+		<Goto state="FETCH0"/>
+	</State>
+	<!-- Next is jalr0 -->
 </Microcode>
