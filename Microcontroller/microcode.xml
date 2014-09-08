@@ -1,12 +1,36 @@
 <Microcode>
 	<State name="FETCH0">
-		<Signal name = "Signal1"/>
-		<Signal name = "Signal2"/>
-		<Goto state="STATE1"/>
+		<Signal name="DrPC"/>
+		<Signal name="LdA"/>
+		<Signal name="LdMAR"/>
+		<Goto state="FETCH1"/>
 	</State>
-	<State name="STATE1" onZ="false">
-		<Signal name = "Signal3"/>
-		<Signal name = "Signal4"/>
-		<Goto state="STATE2"/>
+	<State name="FETCH1">
+		<Signal name="DrMEM"/>
+		<Signal name="LdIR"/>
+		<Goto state="FETCH2"/>
+	</State>
+	<State name="FETCH2">
+		<Signal name="ALULo"/>
+		<Signal name="ALUHi"/>
+		<Signal name="LdPC"/>
+		<Signal name="OpTest"/>
+	</State>
+	<State name="ADD0">
+		<Signal name="RegSelLo"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdA"/>
+		<Goto state="ADD1"/>
+	</State>
+	<State name="ADD1">
+		<Signal name="RegSelHi"/>
+		<Signal name="DrREG"/>
+		<Signal name="LdB"/>
+		<Goto state="ADD2"/>
+	</State>
+	<State name="ADD2">
+		<Signal name="DrALU"/>
+		<Signal name="WrREG"/>
+		<Goto state="FETCH0"/>
 	</State>
 </Microcode>
