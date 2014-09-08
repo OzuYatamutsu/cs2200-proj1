@@ -108,5 +108,6 @@
 		<Signal name="DrREG"/>
 		<Signal name="WrMEM"/>
 		<Goto state="FETCH0"/>
-	</State>	
+	</State>
+	<!-- Next state is beq0 -->
 </Microcode>
