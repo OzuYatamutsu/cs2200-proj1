@@ -113,8 +113,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(160,50)" to="(170,50)"/>
     <wire from="(200,50)" to="(210,50)"/>
     <wire from="(200,90)" to="(210,90)"/>
-    <wire from="(80,90)" to="(90,90)"/>
     <wire from="(220,400)" to="(360,400)"/>
+    <wire from="(80,90)" to="(90,90)"/>
     <wire from="(10,10)" to="(80,10)"/>
     <wire from="(600,10)" to="(600,60)"/>
     <wire from="(570,140)" to="(580,140)"/>
@@ -243,6 +243,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="east"/>
       <a name="label" val="CLK"/>
     </comp>
+    <comp lib="4" loc="(120,90)" name="Register">
+      <a name="width" val="16"/>
+      <a name="label" val="PC"/>
+    </comp>
     <comp lib="0" loc="(670,190)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="Z"/>
@@ -304,11 +308,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp loc="(670,130)" name="microcontroller"/>
     <comp loc="(330,140)" name="register-array"/>
-    <comp lib="4" loc="(120,90)" name="Counter">
-      <a name="width" val="16"/>
-      <a name="max" val="0xffff"/>
-      <a name="label" val="PC"/>
-    </comp>
     <comp lib="0" loc="(550,240)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="width" val="5"/>
