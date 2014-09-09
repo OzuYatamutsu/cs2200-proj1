@@ -13,6 +13,7 @@
 	<State name="FETCH2">
 		<Signal name="ALULo"/>
 		<Signal name="ALUHi"/>
+		<Signal name="DrALU"/>
 		<Signal name="LdPC"/>
 		<Signal name="OpTest"/>
 	</State>
