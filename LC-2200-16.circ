@@ -141,7 +141,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(360,290)" to="(360,400)"/>
     <wire from="(360,10)" to="(360,120)"/>
     <wire from="(120,90)" to="(140,90)"/>
-    <wire from="(70,80)" to="(90,80)"/>
     <wire from="(520,220)" to="(520,260)"/>
     <wire from="(240,100)" to="(240,150)"/>
     <wire from="(680,60)" to="(680,120)"/>
@@ -370,6 +369,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="label" val="func"/>
     </comp>
+    <comp lib="0" loc="(90,100)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="LdPC"/>
+    </comp>
     <comp lib="0" loc="(100,110)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="CLK"/>
@@ -417,10 +420,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(270,200)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="LdA"/>
-    </comp>
-    <comp lib="0" loc="(70,80)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="LdPC"/>
     </comp>
     <comp lib="0" loc="(280,250)" name="Tunnel">
       <a name="facing" val="north"/>
