@@ -116,6 +116,7 @@
 		<Goto state="BEQ1"/>
 	</State>
 	<State name="BEQ1">
+		<Signal name="RegSelLo"/>
 		<Signal name="DrREG"/>
 		<Signal name="LdB"/>
 		<Goto state="BEQ2"/>
