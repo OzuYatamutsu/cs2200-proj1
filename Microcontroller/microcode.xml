@@ -154,7 +154,6 @@
 	<State name="JALR1">
 		<Signal name="DrREG"/>
 		<Signal name="LdPC"/>
-		<Goto state="FETCH0"/>
 	</State>
 	<State name="HALT0">
 		<Goto state="HALT0"/>
