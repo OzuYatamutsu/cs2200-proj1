@@ -146,8 +146,8 @@
 		<Goto state="FETCH0"/>
 	</State>
 	<State name="JALR0">
-		<Signal name="DrPC"/>
 		<Signal name="RegSelLo"/>
+		<Signal name="DrPC"/>
 		<Signal name="WrREG"/>
 		<Goto state="JALR1"/>
 	</State>
