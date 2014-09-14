@@ -216,6 +216,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="0" loc="(690,240)" name="Bit Extender">
       <a name="in_width" val="5"/>
+      <a name="type" val="sign"/>
     </comp>
     <comp lib="0" loc="(260,340)" name="Tunnel">
       <a name="facing" val="east"/>
