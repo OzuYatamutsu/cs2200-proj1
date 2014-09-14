@@ -1,18 +1,28 @@
-!============================================================
-! CS-2200 Homework 1
-!
-! Please do not change main's functionality, 
-! except to change the argument for factorial or to meet your 
-! calling convention
-!============================================================
+! factorial_testcode.s computes the factorial of an unsigned
+! 5-bit number via recursion handled by a simple stack.
 
-! main() is the entry point of the fpogram.
+! The anatomy of the stack is as follows:
+! 
+! ...
+! -------------------
+! Subr args (1 .. n)
+! -------------------
+! Old frame pointer
+! -------------------
+! Return address
+! -------------------
+! Result
+! -------------------
+! Arguments (1 .. n)
+! -------------------
+
+! main() is the entry point of the program.
 main: la $sp, stack				! load ADDRESS of stack label into $sp
 	lw $sp, 0x00($sp) 			! Resolve actual address of stack-label pointer
 	add $fp, $sp, $zero			! ...and set this to frame pointer as well
 	la $at, factorial			! load address of factorial label into $at
 	addi $a0, $zero, 5 			! $a0 = 5, the number to factorialize
-	addi $sp, $sp, -1			! CALL_CONV: Move SP back (fpepare to push)
+	addi $sp, $sp, -1			! CALL_CONV: Move SP back (prepare to push)
 	sw $a0, 0x01($sp)			! CALL_CONV: Push argument 1 into stack
 	jalr $at, $ra				! jump to factorial, set $ra to return addr
 	lw $v0, -1($sp)				! CALL_CONV: Not necessary in this case, but
@@ -21,7 +31,7 @@ main: la $sp, stack				! load ADDRESS of stack label into $sp
 
 ! factorial(a0) calculates the factorial of a number.
 ! This particular function is only defined for a0 >= 0.
-factorial: addi $sp, $sp, -2	! CALL_CONV: Move SP back (fpepare to push)
+factorial: addi $sp, $sp, -2	! CALL_CONV: Move SP back (prepare to push)
 								! (We're moving back by 2 to leave room for result)
 	sw $ra, 0x01($sp)			! CALL_CONV: Push return address into stack
 	lw $a0, 0x03($sp)			! Load argument 1 from stack into $a0
@@ -35,7 +45,7 @@ z_one_j: la $at, z_one				! Load address of z_one into $at
 	jalr $at, $t1				! Jump to z_one, don't care about return address
 no_jump: addi $a0, $a0, -1			! Otherwise, we need to recurse, so (a0 - 1)
 	la $at, factorial			! Load address of factorial subroutine into stack
-	addi $sp, $sp, -2			! CALL_CONV: Move SP back (fpepare to push)
+	addi $sp, $sp, -2			! CALL_CONV: Move SP back (prepare to push)
 	sw $fp, 0x02($sp)			! CALL_CONV: ...and store current FP into stack
 	sw $a0, 0x01($sp)			! CALL_CONV: ...and store new arg into stack
 	addi $fp, $sp, 1			! CALL_CONV: ...and move FP up
@@ -43,7 +53,7 @@ no_jump: addi $a0, $a0, -1			! Otherwise, we need to recurse, so (a0 - 1)
 resume: lw $a1, -2($sp)				! CALL_CONV: Load result from stack into $a1
 	lw $a0, 0x03($sp)			! We need to multiply, load orig. argument from stack
 	la $at, multiply			! Load address of multiply subroutine into stack
-	addi $sp, $sp, -3			! CALL_CONV: Move SP back (fpepare to push)
+	addi $sp, $sp, -3			! CALL_CONV: Move SP back (prepare to push)
 	sw $fp, 0x03($sp)			! CALL_CONV: ...and store current FP into stack
 	sw $a0, 0x02($sp)			! CALL_CONV: ...and store argument 1 into stack
 	sw $a1, 0x01($sp)			! CALL_CONV: ...and store argument 2 into stack
@@ -65,7 +75,7 @@ skipl: jalr $ra, $t0				! Return back to address in $ra, throw away
 	
 ! multiply(a0, a1) multiplies two positive numbers together.
 ! This particular function is only defined for a0, a1 >= 0.
-multiply: addi $sp, $sp, -2			! CALL_CONV: Move SP back (fpepare to push)
+multiply: addi $sp, $sp, -2			! CALL_CONV: Move SP back (prepare to push)
 	sw $ra, 0x01($sp)			! CALL_CONV: Push return address into stack
 	lw $a0, 0x04($sp)			! Load argument 1 from stack into $a0
 	lw $a1, 0x03($sp)			! Load argument 2 from stack into $a1
